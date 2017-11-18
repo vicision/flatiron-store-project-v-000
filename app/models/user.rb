@@ -6,6 +6,13 @@ class User < ActiveRecord::Base
 
   has_many :carts
 
+  def new
+    @user = User.new
+  end
+
+  def create
+    @user = User.new(user_params)
+  end
 
   
 end
