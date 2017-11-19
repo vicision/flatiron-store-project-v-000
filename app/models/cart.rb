@@ -2,12 +2,16 @@ class Cart < ActiveRecord::Base
   belongs_to :user
   has_many :line_items
 
-  def new
-    @cart = Cart.new
-  end
+  # def new
+  #   @cart = Cart.new
+  # end
 
-  def create
-    @cart = Cart.new(cart_params)
+  # def create
+  #   @cart = Cart.new(cart_params)
+  # end
+
+  def show
+    @cart = Cart.find(params[:id])
   end
 
 
