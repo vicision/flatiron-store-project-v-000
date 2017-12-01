@@ -4,5 +4,11 @@
         <% if !!@cart %>
           <li> <%= link_to "Cart", cart_path(current_cart) %></li>
         <% end %>
+        <% if user_signed_in? %>
+        <li><%= "Signed in as #{@user.email}" %></li>
+        <% else %>
+        <li><%= link_to "sign in", signin_path %></li>
+        <% end %>
     </ul>
+
 </nav>
