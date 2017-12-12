@@ -5,14 +5,14 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :carts
-  belongs_to :current_cart, class_name: 'Cart', foreign_key: :current_cart_id
 
-  def new
-    @user = User.new
-  end
+  belongs_to :current_cart, :class_name => "Cart", :foreign_key => "current_cart_id"
 
-  def create
-    @user = User.new(user_params)
+
+  def create_current_cart
+    cart = carts.create
+    self.current_cart_id = cart.id
+    save
   end
 
   
